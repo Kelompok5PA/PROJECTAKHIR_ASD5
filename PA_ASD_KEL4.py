@@ -59,3 +59,31 @@ class LinkedList:
         if arr[int(prev)] == x:
                 return int(prev)
         return -1
+    def shell_sort(self,lst,index_lst):
+        n = len(lst)
+        gap = n // 2
+
+        while gap > 0:
+            for i in range(gap, n):
+                temp = lst[i]
+                temp_index = index_lst[i]
+                j = i
+                while j >= gap and lst[j - gap] > temp:
+                    lst[j] = lst[j - gap]
+                    index_lst[j] = index_lst[j - gap]
+                    j -= gap
+                lst[j] = temp
+                index_lst[j] = temp_index
+            gap //= 2
+
+    def getindex(self, index):
+        current_node = self.head
+        current_index = 0
+
+        while current_node is not None:
+            if current_index == index:
+                return current_node
+
+            current_node = current_node.next
+            current_index += 1
+        return -1

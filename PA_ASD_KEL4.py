@@ -87,3 +87,32 @@ class LinkedList:
             current_node = current_node.next
             current_index += 1
         return -1
+    def print1(self):
+        if len(self.laptop) == 0 :
+            print("Linked list kosong")
+        else:
+            table = PrettyTable()
+            table.field_names = ["No","Nama Laptop","Harga","Stok"]
+            x1 = 1
+            for c in range(len(self.laptop)):
+                table.add_row([x1,self.laptop[c],self.harga[c],self.stok[c]])
+                x1 += 1
+            print(table)   
+    def printsaldo(self):
+        print(f"Saldo Anda : {self.saldoakun}") 
+
+link1 = LinkedList()
+
+def create_account(mydb):
+    cursor = mydb.cursor()
+    # mengambil input dari user
+    username = input("Masukkan username: ")
+    password = input("Masukkan password: ")
+    akunsaldo = 20000000
+    # query untuk menambahkan akun baru ke database
+    insert_query = "INSERT INTO user (username, password, saldo) VALUES (%s, %s, %s)"
+    account_data = (username,password,akunsaldo)
+    cursor.execute(insert_query, account_data)
+    mydb.commit()
+    print(f"Akun {username} berhasil dibuat!")
+    cursor.close()

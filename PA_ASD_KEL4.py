@@ -164,3 +164,34 @@ def user_login():
                     print("transaksi berhasil")
                 else:
                     print('Saldo Tidak Cukup')
+            elif inputuser == "2":
+                link1.print1()
+            elif inputuser == "3":
+                link1.printsaldo()
+            elif inputuser == "4":
+                while True:
+                    tambah = int(input('Masukan Jumlah Saldo Yang Ingin Ditambah: '))
+                    if tambah < 1:
+                        print("Input Tidak Bisa Minus")
+                    else:
+                        break
+                    link1.saldoakun += tambah
+                    print(f'Saldo telah tertambah menjadi: {link1.saldoakun}')
+            elif inputuser == "5":
+                tabel1 = PrettyTable()
+                tabel1.field_names = ["No","Nama Barang","Harga Barang","Jumlah Barang","Total Harga"]
+                no=1
+                for i in range(len(link1.databeli.get("namabarang"))):
+                    tabel1.add_row([no, link1.databeli.get("namabarang")[i],link1.databeli.get("hargabarang")[i],link1.databeli.get("jumlahbarang")[i],link1.databeli.get("totalharga")[i]])
+                    no+=1
+                print(tabel1)
+                print("Total Semua Pembelian Anda : ",sum(link1.databeli.get("totalharga")))
+                with open('invoicelaptop.txt', 'w') as w:
+                    w.write(str(tabel1))
+                    w.write(str("\n"))
+                    w.write(str("Total Semua Pembelian Anda : "))
+                    w.write(str(sum(link1.databeli.get("totalharga"))))
+            elif inputuser == "6":
+                 break
+            else:
+                        print("Input Menu Salah")

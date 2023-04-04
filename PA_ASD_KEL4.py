@@ -116,3 +116,51 @@ def create_account(mydb):
     mydb.commit()
     print(f"Akun {username} berhasil dibuat!")
     cursor.close()
+def user_login():
+    username = input("Masukkan username: ")
+    password = pwinput.pwinput(prompt="Masukkan password: ")
+    # Query untuk memeriksa keberadaan username dan password di tabel user
+    query = "SELECT * FROM user WHERE username = %s AND password = %s"
+    values = (username, password) 
+    cursor = mydb.cursor()
+    cursor.execute(query, values)
+    user = cursor.fetchone()
+    # Jika ditemukan user dengan username dan password yang sesuai
+    if user:
+        querysaldo = "SELECT saldo FROM user WHERE username = %s and password = %s"
+        valuessaldo = (username,password)
+        cursor.execute(querysaldo, valuessaldo)
+        result = cursor.fetchone()
+        link1.saldoakun += result[0]
+        print("Login berhasil. Selamat datang, {}!".format(user[1]))
+        while True:
+            print('''
+            Menu Yang Tersedia
+            1.Beli Barang
+            2.Lihat Barang
+            3.Informasi Saldo
+            4.Tambah Saldo
+            5.Struk Barang
+            6.Keluar Menu
+            ''')
+            inputuser = input('Masukan menu yang diinginkan: ')
+            if inputuser == "1":
+                while True:
+                    link1.print1()
+                    inputbarang = int(input("Masukan Nomor Barang: "))
+                    inputjumlah = int(input("Masukan Jumlah Barang: "))
+                    if inputjumlah > link1.stok[inputbarang-1] or inputjumlah < 1 :
+                        print("Input Salah")
+                    else:
+                        break
+                if link1.saldoakun >= link1.harga[inputbarang-1]*inputjumlah:
+                    kurangisaldo = link1.saldoakun - link1.harga[inputbarang-1]*inputjumlah
+                    link1.saldoakun = kurangisaldo
+                    link1.stok[inputbarang-1] = link1.stok[inputbarang-1] - inputjumlah
+                    link1.databeli["namabarang"].append(link1.laptop[inputbarang-1])
+                    link1.databeli["hargabarang"].append(link1.harga[inputbarang-1])
+                    link1.databeli["jumlahbarang"].append(inputjumlah)
+                    link1.databeli["totalharga"].append(link1.harga[inputbarang-1]*inputjumlah)
+                    print("transaksi berhasil")
+                else:
+                    print('Saldo Tidak Cukup')

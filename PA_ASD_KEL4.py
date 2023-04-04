@@ -27,3 +27,35 @@ class LinkedList:
             "jumlahbarang" : [],
             "totalharga" : []
         }
+    def clear_data(self):
+        self.head = None
+        self.harga.clear()
+        self.stok.clear()
+
+    def append1(self,sortedharga,sortedstok):
+        self.head = None
+        for i in range(len(sortedharga)):
+            self.harga.append(self.sortedharga[i])
+        for i in range(len(sortedstok)):
+            self.stok.append(self.sortedstok[i])
+
+    def update(self,index,namabaru,hargabaru,stokbaru):
+        self.laptop[index-1] = namabaru
+        self.harga[index-1] = hargabaru
+        self.stok[index-1] = stokbaru
+
+    def jumpSearch(self, arr , x , n ):
+        step = math.sqrt(n)
+        prev = 0
+        while arr[int(min(step, n)-1)] < x:
+                    prev = step
+                    step += math.sqrt(n)
+                    if prev >= n:
+                        return -1
+        while arr[int(prev)] < x:        
+                    prev += 1
+                    if prev == min(step, n):
+                        return -1
+        if arr[int(prev)] == x:
+                return int(prev)
+        return -1

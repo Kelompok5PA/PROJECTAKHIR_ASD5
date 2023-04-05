@@ -224,3 +224,26 @@ def admin_login():
             7.Keluar Menu
             ''')
             inputadmin = input('Masukan menu yang diinginkan: ')
+if inputadmin == "1":
+                while True:
+                    input1 = input("Masukan Nama Laptop: ")
+                    if "\t" not in input1:
+                        break
+                    else:                            
+                        print("Masukan input dengan benar")
+                    input2 = int(input("Masukan harga: "))
+                    input3 = int(input("Masukan Stok: "))
+                    link1.laptop.append(input1)
+                    link1.harga.append(input2)
+                    link1.stok.append(input3)
+            elif inputadmin == "2":
+                link1.print1()
+            elif inputadmin == "3":
+                index_lst = list(range(len(link1.laptop)))
+                link1.shell_sort(link1.laptop,index_lst)
+                for i in index_lst:
+                    link1.sortedharga.append(link1.harga[i])
+                for i in index_lst:
+                    link1.sortedstok.append(link1.stok[i])
+                link1.clear_data()   
+                link1.append1(link1.sortedharga,link1.sortedstok)

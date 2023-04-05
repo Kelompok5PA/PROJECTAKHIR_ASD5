@@ -195,3 +195,32 @@ def user_login():
                  break
             else:
                         print("Input Menu Salah")
+# Fungsi login admin
+def admin_login():
+    username = input("Masukkan username admin: ")
+    password = pwinput.pwinput(prompt="Masukkan password admin: ")
+
+    # Query untuk memeriksa keberadaan username dan password di tabel admin
+    query = "SELECT * FROM admin WHERE username = %s AND password = %s"
+    values = (username, password)
+
+    cursor = mydb.cursor()
+    cursor.execute(query, values)
+
+    admin = cursor.fetchone()
+
+    # Jika ditemukan admin dengan username dan password yang sesuai
+    if admin:
+        print("Login berhasil. Selamat datang, {}!".format(admin[1]))
+        while True:
+            print('''
+            Menu Yang Tersedia
+            1.Tambah Data
+            2.Lihat Data
+            3.Sorting Data
+            4.Searching Data
+            5.Hapus Data
+            6.Update Data
+            7.Keluar Menu
+            ''')
+            inputadmin = input('Masukan menu yang diinginkan: ')

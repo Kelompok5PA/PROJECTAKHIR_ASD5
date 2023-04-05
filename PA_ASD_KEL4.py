@@ -247,3 +247,34 @@ if inputadmin == "1":
                     link1.sortedstok.append(link1.stok[i])
                 link1.clear_data()   
                 link1.append1(link1.sortedharga,link1.sortedstok)
+elif inputadmin == "4":
+                link1.print1()
+                inputsearch = input('Masukan nama: ')
+                qq = link1.jumpSearch(link1.laptop,inputsearch,len(link1.laptop))
+                if qq == -1:
+                    print('data tidak ada')
+                else:
+                    print(f'{inputsearch} ada di index {qq}')
+            elif inputadmin == "5":
+                while True:
+                    link1.print1()
+                    inputhapus = int(input("Masukan No Yang Ingin Dihapus: "))
+                    if inputhapus > len(link1.laptop-1) or inputhapus < 0:
+                            print("input salah")
+                    else:
+                            break
+                link1.laptop.pop[inputhapus-1]
+                link1.harga.pop[inputhapus-1]
+                link1.stok.pop[inputhapus-1]
+            elif inputadmin == "6":
+                while True:
+                    link1.print1()
+                    inputupdate = int(input("Masukan No Yang Ingin Diupdate: "))
+                    if inputupdate > len(link1.laptop)-1 or inputupdate < 0:
+                        print("input salah")
+                    else:
+                        break
+                namabaru = input('Masukan nama baru: ')
+                hargabaru = int(input("Masukan harga baru: "))
+                stokbaru = int(input('Masukan stok baru: '))
+                link1.update(inputupdate,namabaru,hargabaru,stokbaru)

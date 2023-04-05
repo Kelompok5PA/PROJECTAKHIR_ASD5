@@ -278,3 +278,32 @@ elif inputadmin == "4":
                 hargabaru = int(input("Masukan harga baru: "))
                 stokbaru = int(input('Masukan stok baru: '))
                 link1.update(inputupdate,namabaru,hargabaru,stokbaru)
+elif inputadmin == "7":
+                break
+            else:
+                print("Input Menu Salah")
+    else:
+        print("Login gagal. Silakan coba lagi.")
+
+# Main program
+def login():
+    while True:
+        print("Selamat datang di program login.")
+        print("Pilih opsi:")
+        print("1. Regis User")
+        print("2. Login user")
+        print("3. Login admin")
+        print("4. Keluar")
+
+        pilihanlogin = input("Masukkan pilihan: ")
+        if pilihanlogin == "1":
+            create_account(mydb)
+        elif pilihanlogin == "2":
+            user_login()
+        elif pilihanlogin == "3":
+            admin_login()
+        elif pilihanlogin == "4":
+            break
+        else:
+            print("Pilihan tidak valid. Silakan coba lagi.")
+login()

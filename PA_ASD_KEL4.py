@@ -281,9 +281,9 @@ def admin_login():
                 stokbaru = int(input('Masukan stok baru: '))
                 link1.update(inputupdate,namabaru,hargabaru,stokbaru)
             elif inputadmin == "7":
-                            break
-                        else:
-                            print("Input Menu Salah")
+                break
+            else:
+                print("Input Menu Salah")
     else:
         print("Username dan/atau Password salah")
         time.sleep(2)

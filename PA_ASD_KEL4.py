@@ -2,6 +2,7 @@ import  mysql.connector
 from prettytable import PrettyTable
 import pwinput
 import math
+import time
 mydb = mysql.connector.connect(
     host= "sql12.freesqldatabase.com",
     user="sql12609741",
@@ -194,7 +195,8 @@ def user_login():
             elif inputuser == "6":
                  break
             else:
-                        print("Input Menu Salah")
+                print("Username dan/atau Password salah")
+                time.sleep(2)
 # Fungsi login admin
 def admin_login():
     username = input("Masukkan username admin: ")
@@ -224,18 +226,18 @@ def admin_login():
             7.Keluar Menu
             ''')
             inputadmin = input('Masukan menu yang diinginkan: ')
-if inputadmin == "1":
-                while True:
-                    input1 = input("Masukan Nama Laptop: ")
-                    if "\t" not in input1:
-                        break
-                    else:                            
-                        print("Masukan input dengan benar")
-                    input2 = int(input("Masukan harga: "))
-                    input3 = int(input("Masukan Stok: "))
-                    link1.laptop.append(input1)
-                    link1.harga.append(input2)
-                    link1.stok.append(input3)
+            if inputadmin == "1":
+                            while True:
+                                input1 = input("Masukan Nama Laptop: ")
+                                if "\t" not in input1:
+                                    break
+                                else:                            
+                                    print("Masukan input dengan benar")
+                                input2 = int(input("Masukan harga: "))
+                                input3 = int(input("Masukan Stok: "))
+                                link1.laptop.append(input1)
+                                link1.harga.append(input2)
+                                link1.stok.append(input3)
             elif inputadmin == "2":
                 link1.print1()
             elif inputadmin == "3":
@@ -247,14 +249,14 @@ if inputadmin == "1":
                     link1.sortedstok.append(link1.stok[i])
                 link1.clear_data()   
                 link1.append1(link1.sortedharga,link1.sortedstok)
-elif inputadmin == "4":
-                link1.print1()
-                inputsearch = input('Masukan nama: ')
-                qq = link1.jumpSearch(link1.laptop,inputsearch,len(link1.laptop))
-                if qq == -1:
-                    print('data tidak ada')
-                else:
-                    print(f'{inputsearch} ada di index {qq}')
+            elif inputadmin == "4":
+                            link1.print1()
+                            inputsearch = input('Masukan nama: ')
+                            qq = link1.jumpSearch(link1.laptop,inputsearch,len(link1.laptop))
+                            if qq == -1:
+                                print('data tidak ada')
+                            else:
+                                print(f'{inputsearch} ada di index {qq}')
             elif inputadmin == "5":
                 while True:
                     link1.print1()
@@ -278,12 +280,13 @@ elif inputadmin == "4":
                 hargabaru = int(input("Masukan harga baru: "))
                 stokbaru = int(input('Masukan stok baru: '))
                 link1.update(inputupdate,namabaru,hargabaru,stokbaru)
-elif inputadmin == "7":
-                break
-            else:
-                print("Input Menu Salah")
+            elif inputadmin == "7":
+                            break
+                        else:
+                            print("Input Menu Salah")
     else:
-        print("Login gagal. Silakan coba lagi.")
+        print("Username dan/atau Password salah")
+        time.sleep(2)
 
 # Main program
 def login():

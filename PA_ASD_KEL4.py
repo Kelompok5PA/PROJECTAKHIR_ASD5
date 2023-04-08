@@ -4,10 +4,10 @@ import pwinput
 import math
 import time
 mydb = mysql.connector.connect(
-    host= "sql12.freesqldatabase.com",
-    user="sql12609741",
-    password="X6QKXcWMWz",
-    database="sql12609741"
+    host= "db4free.net",
+    user="taufik2112",
+    password="taufik123",
+    database="login_menu"
 )
 class Node:
     def __init__(self):

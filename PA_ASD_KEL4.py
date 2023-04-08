@@ -195,6 +195,8 @@ def user_login():
             elif inputuser == "6":
                  break
             else:
+                print("input salah")
+    else:
                 print("Username dan/atau Password salah")
                 time.sleep(2)
 # Fungsi login admin

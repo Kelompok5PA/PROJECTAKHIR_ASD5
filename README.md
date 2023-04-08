@@ -27,3 +27,10 @@ Pada menu user terdapat enam fitur yaitu;
 - Fitur tambah saldo yang berfungsi untuk menambah nominal dari saldo yang dimiliki.
 - Fitur struk barang yang berfungsi untuk melihat struk dari barang yang sudah dibeli.
 - Fitur keluar yang berfungsi untuk keluar dari menu user ke menu login.
+## CARA PENGGUNAAN
+### Menu Login
+#### Registrasi User
+1. Pilih "1" pada input menu login.
+2. Masukan username yang di inginkan.
+3. Masukan password yang di inginkan.
+#### 

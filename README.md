@@ -33,4 +33,67 @@ Pada menu user terdapat enam fitur yaitu;
 1. Pilih "1" pada input menu login.
 2. Masukan username yang di inginkan.
 3. Masukan password yang di inginkan.
-#### 
+#### Login User
+1. Pilih "2" pada input menu login.
+2. Masukan username akun anda.
+3. Masukan password akun anda.
+(Jika username dan/atau password yang dimasukan salah atau tidak ada maka akan kembali ke menu login)
+#### Login Admin
+1. Pilih "3" pada input menu login.
+2. Masukan username admin.
+3. Masukan password admin.
+(Jika username dan/atau password yang dimasukan salah atau tidak ada maka akan kembali ke menu login)
+#### Keluar Menu Login
+Masukan "4" pada input menu maka program akan langsung berhenti.
+
+(Jika menu login yang di input user tidak tersedia maka akan diminta input ulang)
+### Menu User
+#### Beli Barang
+1. Pilih "1" pada input menu user.
+2. Masukan nomor barang yang ingin dibeli.
+3. Masukan jumlah barang.
+(Jika jumlah barang yang dimasukan lebih dari stok yang ada atau memasukan nol maka akan diminta input ulang)
+(Jika saldo mencukupi maka saldo dari akun user akan terkurangi dan barang yang dibeli akan masuk ke dalam data beli)
+(Jika saldo tidak mencukupi maka user akan kembali ke menu user)
+#### Lihat Barang
+Masukan "2" pada input menu user maka data barang akan langsung ditampilkan.
+#### Informasi Saldo
+Masukan "3" pada input menu user maka data saldo dari akun user akan ditampilkan.
+#### Tambah Saldo
+1. Masukan "4" pada input menu user.
+2. Masukan nominal saldo yang di inginkan.
+(Jika nominal yang dimasukan kurang dari 1 maka akan diminta input ulang)
+#### Struk Barang
+Masukan "5" pada input menu user maka user akan melihat tampilan barang yang telah terbeli.
+#### Keluar
+Masukan "6" pada input menu user maka user akan kembali ke menu login.
+
+(Jika input menu yang dimasukan oleh user tidak tersedia maka akan diminta input ulang)
+### Menu Admin
+#### Tambah Data
+1. Masukan "1" pada input menu admin.
+2. Masukan nama laptop.
+3. Masukan harga.
+4. Masukan stok.
+#### Lihat Data 
+Masukan "2" pada input menu admin maka admin akan melihat tampilan data barang.
+#### Sorting Data
+Masukan "3" pada input menu admin maka data barang akan disorting menurut nama barangnya.
+#### Searching Data
+1. Masukan "4" pada input menu admin.
+2. Masukan nama barang yang ingin dicari indeks nya.
+(Searching dapat dilakukan dengan catatan barang sudah tersorting)
+#### Hapus Data
+1. Masukan   "5" pada input menu admin.
+2. Masukan nomor barang yang ingin dihapus.
+(Jika nomor barang yang dihapus kurang dari 1 atau tidak ada maka akan diminta input ulang)
+#### Update Data
+1. Masukan "6" pada input menu admin.
+2. Masukan nomor barang yang ingin dihapus.
+3. Masukan nama barang baru.
+4. Masukan harga barang baru.
+5. Masukan stok barang baru.
+#### Keluar 
+Masukan "7" pada input menu admin maka admin akan keluar dari menu admin dan masuk ke menu login.
+
+(Jika admin memasukan menu yang tidak tersedia maka akan diminta input ulang)

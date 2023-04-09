@@ -263,7 +263,7 @@ def admin_login():
                 while True:
                     link1.print1()
                     inputhapus = int(input("Masukan No Yang Ingin Dihapus: "))
-                    if inputhapus > len(link1.laptop-1) or inputhapus < 0:
+                    if inputhapus > len(link1.laptop-1) or inputhapus < 1:
                             print("input salah")
                     else:
                             break
@@ -274,7 +274,7 @@ def admin_login():
                 while True:
                     link1.print1()
                     inputupdate = int(input("Masukan No Yang Ingin Diupdate: "))
-                    if inputupdate > len(link1.laptop)-1 or inputupdate < 0:
+                    if inputupdate > len(link1.laptop)-1 or inputupdate < 1:
                         print("input salah")
                     else:
                         break

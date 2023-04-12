@@ -2,7 +2,7 @@
 ## DESKRIPSI PROGRAM
 Program ini merupakan sebuah program tentang sebuah toko laptop yang dapat digunakan oleh user untuk melakukan transaksi antara user dengan penjual serta berguna bagi admin atau penjual untuk melakukan beberapa operasi pada data barang yang ada. Program ini juga memiliki registrasi dan login akun untuk masuk ke dalam menu programnya.
 ## STRUKTUR PROGRAM
-Pada program ini struktur awal komponennya adalah menu login yang berguna sebagai poin entri ke dalam salah satu dari komponen menu utama, yaitu menu admin dan menu user. Kemudian, komponen selanjutnya dari program ini adalah penggunaan encapsulation dari konsep OOP (object-oriented programming) untuk menyimpan data-data barang. Komponen pembantu terdiri dari searching yaitu Jump Search dan sorting yaitu Shell Sort. Konsep OOP juga digunakan untuk menyimpan function constructor dan normal function. Selanjutnya, komponen utama yang digunakan adalah menu user untuk proses transaksi antara penjual dan pembeli dan menu admin untuk proses operasi pada data barang.
+Pada program ini struktur awal komponennya adalah menu login yang berguna sebagai poin entri ke dalam salah satu dari komponen menu utama, yaitu menu admin dan menu user. Kemudian, komponen selanjutnya dari program ini adalah penggunaan struktur data Queue untuk menyimpan data-data barang dengan menggunakan konsep expired dimana barang yang pertama masuk maka dia akan pertama kali keluar. Komponen pembantu terdiri dari searching yaitu Jump Search dan sorting yaitu Shell Sort. Konsep OOP juga digunakan untuk menyimpan function constructor dan normal function. Selanjutnya, komponen utama yang digunakan adalah menu user untuk proses transaksi antara penjual dan pembeli dan menu admin untuk proses operasi pada data barang.
 ## FITUR PROGRAM DAN FUNGSIONALITASNYA
 ### Menu Login
 Pada menu login terdapat empat fitur yaitu;
@@ -75,6 +75,7 @@ Masukan "6" pada input menu user maka user akan kembali ke menu login.
 2. Masukan nama laptop.
 3. Masukan harga.
 4. Masukan stok.
+5. Masukan tanggal expired
 #### Lihat Data 
 Masukan "2" pada input menu admin maka admin akan melihat tampilan data barang.
 #### Sorting Data
@@ -93,6 +94,7 @@ Masukan "3" pada input menu admin maka data barang akan disorting menurut nama b
 3. Masukan nama barang baru.
 4. Masukan harga barang baru.
 5. Masukan stok barang baru.
+6. Masukan tanggal expired barang baru.
 #### Keluar 
 Masukan "7" pada input menu admin maka admin akan keluar dari menu admin dan masuk ke menu login.
 

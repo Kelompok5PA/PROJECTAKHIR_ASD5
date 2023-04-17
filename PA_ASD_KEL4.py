@@ -3,6 +3,7 @@ from prettytable import PrettyTable
 import pwinput
 import math
 import time
+from datetime import datetime
 mydb = mysql.connector.connect(
     host= "db4free.net",
     user="taufik2112",
@@ -12,10 +13,10 @@ mydb = mysql.connector.connect(
 class Toko:
     def __init__(self):
         self.head = None
-        self.kerupuk = ["Kerupuk Kulit","Kerupuk Udang","Kerupuk Bawang","Amplang"]
+        self.kerupuk = ["Kerupuk Kulit Balado","Kerupuk Kulit Jagung","Kerupuk Kulit Barbeque","Kerupuk Kulit Pedas Manis"]
         self.harga = [15000,30000,10000,25000]
         self.stok = [10,5,15,20]
-        self.expire = ["10-07-2024","11-09-2024","21-10-2024","28-12-2024"]
+        self.expire = ["10-07-2022","11-09-2024","21-10-2024","28-12-2024"]
         self.sortedharga = []
         self.sortedstok= []
         self.sortedexpire = []
@@ -40,12 +41,6 @@ class Toko:
             self.stok.append(self.sortedstok[i])
         for i in range(len(sortedexpire)):
             self.expire.append(self.sortedexpire[i])
-
-    def update(self,index,namabaru,hargabaru,stokbaru,expirebaru):
-        self.kerupuk[index-1] = namabaru
-        self.harga[index-1] = hargabaru
-        self.stok[index-1] = stokbaru
-        self.expire[index-1] = expirebaru
 
     def jumpSearch(self, arr , x , n ):
         step = math.sqrt(n)
@@ -228,7 +223,7 @@ def admin_login():
             3.Sorting Data
             4.Searching Data
             5.Hapus Data
-            6.Update Data
+            6.Dequeue Barang Expired
             7.Keluar Menu
             ''')
             inputadmin = input('Masukan menu yang diinginkan: ')
@@ -266,7 +261,7 @@ def admin_login():
                             if qq == -1:
                                 print('data tidak ada')
                             else:
-                                print(f'{inputsearch} ada di index {qq}')
+                                print(f'{inputsearch} ada di no {qq+1}')
             elif inputadmin == "5":
                 while True:
                     link1.print1()
@@ -279,19 +274,17 @@ def admin_login():
                 link1.harga.pop[inputhapus-1]
                 link1.stok.pop[inputhapus-1]
                 link1.expire.pop[inputhapus-1]
-            elif inputadmin == "6":
-                while True:
-                    link1.print1()
-                    inputupdate = int(input("Masukan No Yang Ingin Diupdate: "))
-                    if inputupdate > len(link1.kerupuk)-1 or inputupdate < 1:
-                        print("input salah")
-                    else:
+            elif inputadmin =="6":
+                for i in range(len(link1.kerupuk)):
+                    expire_date = datetime.strptime(link1.expire[i], "%d-%m-%Y")
+                    if expire_date < datetime.now():
+                        link1.kerupuk.pop(i)
+                        link1.harga.pop(i)
+                        link1.stok.pop(i)
+                        link1.expire.pop(i)
                         break
-                namabaru = input('Masukan nama baru: ')
-                hargabaru = int(input("Masukan harga baru: "))
-                stokbaru = int(input('Masukan stok baru: '))
-                expirebaru = input("Masukan tanggal expire (xx-xx-xxxx): ")
-                link1.update(inputupdate,namabaru,hargabaru,stokbaru,expirebaru)
+                else:
+                    print("Tidak ada barang yang expire")
             elif inputadmin == "7":
                             break
             else:
@@ -307,8 +300,8 @@ def login():
         print("Selamat datang di program login.")
         print("Pilih opsi:")
         print("1. Regis User")
-        print("2. Login user")
-        print("3. Login admin")
+        print("2. Login User")
+        print("3. Login Admin")
         print("4. Keluar")
 
         pilihanlogin = input("Masukkan pilihan: ")
